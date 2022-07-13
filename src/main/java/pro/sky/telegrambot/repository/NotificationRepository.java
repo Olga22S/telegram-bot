@@ -8,6 +8,6 @@ import java.util.Collection;
 
 public interface NotificationRepository extends JpaRepository<NotificationTask, Long> {
 
-    @Query("FROM NotificationTask WHERE notificationDate < CURRENT_TIMESTAMP AND status = 'SCHEDULED'")
+    @Query("FROM NotificationTask WHERE notificationDate <= CURRENT_TIMESTAMP AND status = 'SCHEDULED'")
     Collection<NotificationTask> getScheduledNotifications();
 }

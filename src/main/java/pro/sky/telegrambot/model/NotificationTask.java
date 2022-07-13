@@ -11,21 +11,26 @@ public class NotificationTask {
 
     }
 
-    public LocalDateTime getSentDate(){
+    public LocalDateTime getSentDate() {
         return sentDate;
     }
 
-    public void setSentDate(LocalDateTime sentDate){
+    public void setSentDate(LocalDateTime sentDate) {
         this.sentDate = sentDate;
     }
 
-    public enum NotificationStatus{
+    public void markAsSend() {
+        this.status = NotificationStatus.SENT;
+        this.sentDate = LocalDateTime.now();
+    }
+
+    public enum NotificationStatus {
         SCHEDULED,
         SENT,
     }
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long chatId;
